@@ -21,7 +21,7 @@
     margin-top: 30px;
 }
 
-#app .app-details .row-one div input:hover {
+#app .app-details .row-one div input {
     background-color: #1A93C9;
     color: #FFFFFF;
     font-weight: bold;
