@@ -13,11 +13,10 @@ function initMap() {
             $('#card-body-IP').html(address);
             $('#card-body-location').html(`${data.city}, ${data.country_name}`);
             console.log(data)
-
-            $.getJSON(`https://api.darksky.net/forecast/3bdd434415b8c7c870aa139be8feed37/${encodeURIComponent(data.latitude)}, ${encodeURIComponent(data.longitude)}?units=si`, function (body) {
-                const dailyData = body.daily.data[0];
-                $('#card-body-report').html(` ${dailyData.summary} It is currently ${body.currently.temperature}°C out here in ${body.timezone} with a high of ${dailyData.temperatureHigh}°C and a low of ${dailyData.temperatureLow}°C.
-            There is a ${body.currently.precipProbability}% chance of rain`);
+            // api.openweathermap.org/data/2.5/weather?lat=35&lon=139
+            $.getJSON(`http://api.openweathermap.org/data/2.5/weather?lat=${data.latitude}&lon=${data.longitude}&APPID=3ccc4c738883a33d8b32d9751899f575&units=metric`, function (body) {
+                $('#card-body-report').html(` It is currently ${body.main.temp}°C out here in ${body.name}, ${body.sys.country} with ${body.weather[0].description}.`);
+                console.log(body)
             })
 
             // The location of Client
