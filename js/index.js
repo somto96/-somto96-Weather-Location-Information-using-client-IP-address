@@ -14,7 +14,7 @@ function initMap() {
             $('#card-body-location').html(`${data.city}, ${data.country_name}`);
             console.log(data)
             // api.openweathermap.org/data/2.5/weather?lat=35&lon=139
-            $.getJSON(`http://api.openweathermap.org/data/2.5/weather?lat=${data.latitude}&lon=${data.longitude}&APPID=3ccc4c738883a33d8b32d9751899f575&units=metric`, function (body) {
+            $.getJSON(`https://api.openweathermap.org/data/2.5/weather?lat=${data.latitude}&lon=${data.longitude}&APPID=3ccc4c738883a33d8b32d9751899f575&units=metric`, function (body) {
                 $('#card-body-report').html(` It is currently ${body.main.temp}°C out here in ${body.name}, ${body.sys.country} with ${body.weather[0].description}.`);
                 console.log(body)
             })
