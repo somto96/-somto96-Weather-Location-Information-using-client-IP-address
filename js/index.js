@@ -4,7 +4,8 @@
  */
 
 // Initialize and add the map
-function initMap() {
+
+$(document).ready(function () {
     $.getJSON('https://ipapi.co/json/', function (data) {
         if (data.error) {
             console.log(data.error);
@@ -19,27 +20,51 @@ function initMap() {
                 console.log(body)
             })
 
-            // The location of Client
-            var location = {
-                lat: data.latitude,
-                lng: data.longitude
-            };
-            // The map, centered at Uluru
-            var map = new google.maps.Map(
-                document.getElementById('map'), {
-                    zoom: 16,
-                    center: location
-                });
-            // The marker, positioned at Uluru
-            var marker = new google.maps.Marker({
-                position: location,
-                map: map
+            mapboxgl.accessToken =
+                'pk.eyJ1Ijoic29tdG85NiIsImEiOiJjazJrOHdvOWIxMDRsM2pvMDhpdGcxMG14In0.L0lWaue08HMjJbSJZUZA5Q';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11',
+                // pitch: 55,
+                center: [data.longitude, data.latitude],
+                zoom: 10,
+                // bearing: 17.6,
+
             });
+            // console.log(map.scrollZoom._map.transform.zoom)
+
+
+            // Add zoom and rotation controls to the map.
+            map.addControl(new mapboxgl.NavigationControl());
+
+            // Marker
+            var marker = new mapboxgl.Marker({
+                draggable: false,
+                color: 'red'
+            })
+            marker.setLngLat([data.longitude, data.latitude])
+            marker.addTo(map);
+
+            // // The location of Client
+            // var location = {
+            //     lat: data.latitude,
+            //     lng: data.longitude
+            // };
+            // // // The map, centered at Uluru
+            // var map = new google.maps.Map(
+            //     document.getElementById('map'), {
+            //         zoom: 16,
+            //         center: location
+            //     });
+            // // The marker, positioned at Uluru
+            // var marker = new google.maps.Marker({
+            //     position: location,
+            //     map: map
+            // });
 
         }
     })
-
-}
+})
 
 // Button event for refreshing the page
 $(".uk-button").click(function () {

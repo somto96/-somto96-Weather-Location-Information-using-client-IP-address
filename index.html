@@ -9,7 +9,7 @@
     <title>Weather Location Information</title>
 
     <link rel="stylesheet" href="./css/index.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,600&display=swap" rel="stylesheet">
@@ -17,9 +17,10 @@
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.4/dist/css/uikit.min.css" />
 
-    <!-- UIkit JS -->
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.4/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.4/dist/js/uikit-icons.min.js"></script>
+    <!-- MAPBOX GL CSS -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
+
+   
 </head>
 
 <body id="app">
@@ -61,18 +62,22 @@
 
 
     </div>
-    <div class ="footer uk-container uk-text-center">
+    <div class="footer uk-container uk-text-center">
         <p class="foot-note">Created by Somtochukwu Ezerioha©2019 </p>
     </div>
 
     <!-- Scripts Section --------------------------------------------------------------------------------------------------------------->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.4/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.4/dist/js/uikit-icons.min.js"></script>
+    <!-- MAPBOX GL JS -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
 
     <!-- Google Map -->
-    <script async defer
+    <!-- <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXKpbRj6F_zxe-BtQA-Mn3gnrb1Xh_SQE&callback=initMap">
-    </script>
-    <!-- <script type="text/javascript"
-    src="https://maps.google.com/maps/api/js?key=AIzaSyCXKpbRj6F_zxe-BtQA-Mn3gnrb1Xh_SQE"></script> -->
+    </script> -->
 
     <!-- External JS File -->
     <script src="./js/index.js"></script>
